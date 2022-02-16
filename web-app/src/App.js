@@ -107,9 +107,10 @@ function App() {
       >
         
         <div><h1>Weather Details</h1></div>
-        <div>Status: {res && res.weather ? res.weather[0].description : ""}</div>
-        <div>Temprature: {Math.round((res?.main?.temp - 273.15)*100)/100}&deg;C</div>
-        <div>Last Updated By: {moment(date.setUTCSeconds(res?.dt)).format('DD/MM/YYYY')}</div>
+        <div>City Name : {res?.name}</div>
+        <div>Status : {res && res.weather ? res.weather[0].description : ""}</div>
+        <div>Temprature : {Math.round((res?.main?.temp - 273.15)*100)/100}&deg;C</div>
+        <div>Last Updated By : {moment(date.setUTCSeconds(res?.dt)).format('DD/MM/YYYY')}</div>
         <br></br>
         <Container>
         <button style = {{alignContent: 'center'}} onClick={closeModal}>close</button>
