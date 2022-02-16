@@ -1,8 +1,7 @@
-import logo from './logo.svg';
+
 import './App.css';
 import cities from "./cities.json"
 import React, { useState, useEffect } from "react";
-import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -12,7 +11,7 @@ import axios from 'axios';
 import Modal from 'react-modal';
 import moment from 'moment';
 import { Container } from '@mui/material';
-import { height } from '@mui/system';
+
 function App() {
  
   const customStyles = {
@@ -36,7 +35,7 @@ function App() {
   }
 
   function afterOpenModal() {
-    // references are now sync'd and can be accessed.
+    
     subtitle.style.color = '#f00';
   }
 
@@ -109,9 +108,13 @@ function App() {
         
         <div><h1>Weather Details</h1></div>
         <div>Status: {res && res.weather ? res.weather[0].description : ""}</div>
-        <div>Temprature: {res?.main?.temp}</div>
+        <div>Temprature: {Math.round((res?.main?.temp - 273.15)*100)/100}&deg;C</div>
         <div>Last Updated By: {moment(date.setUTCSeconds(res?.dt)).format('DD/MM/YYYY')}</div>
-        <button onClick={closeModal}>close</button>
+        <br></br>
+        <Container>
+        <button style = {{alignContent: 'center'}} onClick={closeModal}>close</button>
+        </Container>
+        
       </Modal>
     </div>
   );
